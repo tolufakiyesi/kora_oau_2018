@@ -45,6 +45,14 @@ public class DebtFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        getView().findViewById(R.id.addNewDebt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                //inflate add new dialog
+            }
+        });
+
+
         final ArrayList<TransactionModel> allMyTransactions = new ArrayList<>();
 
 
