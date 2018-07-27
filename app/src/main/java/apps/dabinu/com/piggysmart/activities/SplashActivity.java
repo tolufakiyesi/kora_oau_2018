@@ -1,9 +1,12 @@
-package apps.dabinu.com.piggysmart;
+package apps.dabinu.com.piggysmart.activities;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import apps.dabinu.com.piggysmart.R;
+import apps.dabinu.com.piggysmart.activities.HomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
