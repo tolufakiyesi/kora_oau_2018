@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_daily_tracker"
+            android:icon="@drawable/daily"
+            android:title="Daily tracker" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/my_budgets"
+            android:icon="@drawable/budget"
+            android:title="My budgets" />
+    </group>
+
+
+    <item android:title="Transactions">
+        <menu>
+            <item
+                android:id="@+id/nav_debtsandcredits"
+                android:icon="@drawable/all"
+                android:title="All" />
+            <item
+                android:id="@+id/nav_debts"
+                android:icon="@drawable/debt"
+                android:title="Debts" />
+            <item
+                android:id="@+id/nav_credits"
+                android:icon="@drawable/credit"
+                android:title="Credits" />
+        </menu>
+    </item>
+
+</menu>
