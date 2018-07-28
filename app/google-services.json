@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "595864710978",
+    "firebase_url": "https://koraoau2018.firebaseio.com",
+    "project_id": "koraoau2018",
+    "storage_bucket": "koraoau2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595864710978:android:8383d1017ca6df59",
+        "android_client_info": {
+          "package_name": "apps.dabinu.com.piggysmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595864710978-u4ddhe2p9pe8ftnnsvch8onftop684i3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "apps.dabinu.com.piggysmart",
+            "certificate_hash": "20c43aac4c85b3719ed5c9aa38049ed098f065a3"
+          }
+        },
+        {
+          "client_id": "595864710978-nunijlpur1nvu12vrg80pvr2l4sgikau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf8LMMMJCyYzjm0QdyQvVfVO4NQuhYVi0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595864710978-nunijlpur1nvu12vrg80pvr2l4sgikau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
