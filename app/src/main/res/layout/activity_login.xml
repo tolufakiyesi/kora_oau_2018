@@ -113,17 +113,6 @@
 
     </LinearLayout>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginMenu"
-        android:layout_alignEnd="@+id/loginMenu"
-        android:layout_marginTop="30dp"
-        android:textSize="15sp"
-        android:text="Forgot password?"
-        android:textColor="@android:color/holo_blue_dark" />
-
     <TextView
         android:id="@+id/signup"
         android:layout_width="wrap_content"
