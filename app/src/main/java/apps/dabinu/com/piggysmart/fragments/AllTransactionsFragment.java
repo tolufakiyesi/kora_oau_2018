@@ -32,7 +32,7 @@ import apps.dabinu.com.piggysmart.models.TransactionModel;
 
 
 
-public class AllTransactionsFragment extends Fragment {
+public class AllTransactionsFragment extends android.app.Fragment {
 
     boolean isDebt = false;
 

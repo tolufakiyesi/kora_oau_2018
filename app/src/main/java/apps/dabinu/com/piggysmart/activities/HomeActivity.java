@@ -1,5 +1,6 @@
 package apps.dabinu.com.piggysmart.activities;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import apps.dabinu.com.piggysmart.R;
+import apps.dabinu.com.piggysmart.fragments.AllTransactionsFragment;
+import apps.dabinu.com.piggysmart.fragments.CreditFragment;
+import apps.dabinu.com.piggysmart.fragments.DebtFragment;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,10 +51,8 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START)){
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
     }
 
@@ -64,13 +66,27 @@ public class HomeActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+    public boolean onNavigationItemSelected(MenuItem item){
+
         int id = item.getItemId();
 
-//        if (id == R.id.nav_camera) {
-//             Handle the camera action
-//        }
+        if(id == R.id.nav_debtsandcredits){
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, new AllTransactionsFragment());
+            fragmentTransaction.commit();
+        }
+
+        else if(id == R.id.nav_debts){
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, new DebtFragment());
+            fragmentTransaction.commit();
+        }
+
+        else if(id == R.id.nav_credits){
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, new CreditFragment());
+            fragmentTransaction.commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
