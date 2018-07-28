@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_below="@+id/amount"
         android:layout_marginTop="10dp"
-        android:id="@+id/l1"
+        android:layout_marginBottom="30dp"
         android:layout_height="60dp">
 
         <RelativeLayout
@@ -49,34 +49,6 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/l1">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/save"
-                android:text="Save"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/cancel"
-                android:layout_toEndOf="@+id/save"
-                android:layout_marginStart="80dp"
-                android:text="Cancel"/>
-
-        </RelativeLayout>
-    </RelativeLayout>
 
 
 </RelativeLayout>

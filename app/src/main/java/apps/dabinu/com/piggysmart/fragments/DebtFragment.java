@@ -1,6 +1,7 @@
 package apps.dabinu.com.piggysmart.fragments;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,10 +17,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import apps.dabinu.com.piggysmart.R;
@@ -28,6 +35,9 @@ import apps.dabinu.com.piggysmart.models.TransactionModel;
 
 
 public class DebtFragment extends Fragment {
+
+
+    boolean isDebt = false;
 
 
     public DebtFragment(){
@@ -45,10 +55,84 @@ public class DebtFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        getView().findViewById(R.id.addNewDebt).setOnClickListener(new View.OnClickListener() {
+        getView().findViewById(R.id.addNewDebt).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //inflate add new dialog
+
+                final android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(getActivity());
+                alert.setCancelable(false);
+                final View view = (getActivity().getLayoutInflater()).inflate(R.layout.model_add_new, null);
+                alert.setView(view);
+
+
+
+                ((RadioButton) view.findViewById(R.id.toPay)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        isDebt = true;
+                        if(isChecked){
+                            if(((RadioButton) view.findViewById(R.id.toCollect)).isChecked()){
+                                ((RadioButton) view.findViewById(R.id.toCollect)).setChecked(false);
+                            }
+                        }
+                    }
+                });
+
+
+                ((RadioButton) view.findViewById(R.id.toCollect)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                        isDebt = false;
+                        if(isChecked){
+                            if(((RadioButton) view.findViewById(R.id.toPay)).isChecked()){
+                                ((RadioButton) view.findViewById(R.id.toPay)).setChecked(false);
+                            }
+                        }
+
+                    }
+                });
+
+                alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(((EditText) view.findViewById(R.id.name)).getText().toString().equals("")){
+                            ((EditText) view.findViewById(R.id.name)).setError("This field is required");
+                        }
+                        else if(((EditText) view.findViewById(R.id.amount)).getText().toString().equals("")){
+                            ((EditText) view.findViewById(R.id.amount)).setError("This field is required");
+                        }
+                        else if(!((RadioButton) view.findViewById(R.id.toCollect)).isChecked() && !((RadioButton) view.findViewById(R.id.toPay)).isChecked()){
+                            Toast.makeText(getActivity().getApplicationContext(), "Choose a trnsaction type", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            try{
+                                FileOutputStream fos = getActivity().openFileOutput(Long.toString(System.currentTimeMillis()), Context.MODE_APPEND);
+                                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                                oos.writeObject(new TransactionModel(((EditText) view.findViewById(R.id.name)).getText().toString().trim(), ((EditText) view.findViewById(R.id.amount)).getText().toString().trim(), isDebt));
+                                oos.close();
+                                fos.close();
+                                Toast.makeText(getActivity().getApplicationContext(), "Successful!!!", Toast.LENGTH_LONG).show();
+                            }
+                            catch (Exception e){
+                                Toast.makeText(getActivity().getApplicationContext(), "Failed, try again.", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                });
+
+
+                alert.setNegativeButton("Cancel", null);
+
+                alert.create();
+                alert.show();
+
+
+
+
+
+
+
+
             }
         });
 

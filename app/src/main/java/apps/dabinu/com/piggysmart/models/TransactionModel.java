@@ -11,6 +11,12 @@ public class TransactionModel implements Serializable{
 
     }
 
+    public TransactionModel(String name, String amount, boolean isDebt){
+        this.name = name;
+        this.amount = amount;
+        this.isDebt = isDebt;
+    }
+
     public String getName() {
         return name;
     }
