@@ -44,7 +44,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position){
         holder.transactionName.setText(transactions.get(position).getName());
-        holder.transactionAmount.setText(transactions.get(position).getAmount());
+        holder.transactionAmount.setText(String.format("#%s", transactions.get(position).getAmount()));
         if(!isAll){
             holder.theCard.setCardBackgroundColor(colorToChangeTo);
         }

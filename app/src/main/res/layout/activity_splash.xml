@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#232323"
     tools:context=".activities.SplashActivity">
 
 
@@ -12,6 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="18sp"
-        android:text="We are mad men, we are not happy."/>
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="#00FF00"
+        android:textAlignment="center"
+        android:text="The current bone of contention is how Taslim, Tolu and Paul are going to share #200,000... My suggestion is to share based on commits."/>
 
 </RelativeLayout>

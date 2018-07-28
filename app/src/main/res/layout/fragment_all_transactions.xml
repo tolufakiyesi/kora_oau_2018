@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.AllTransactionsFragment">
 
     <RelativeLayout
@@ -42,7 +43,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/allTransactionText"
             android:id="@+id/display_all_transactions"
-            android:layout_margin="13dp">
+            android:layout_margin="7dp">
 
         </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
@@ -52,8 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addNewTransaction"
-        android:backgroundTint="#ffffff"
         android:src="@drawable/add"
+        app:backgroundTint="#ffffff"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="18dp"
