@@ -61,11 +61,11 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 else{
                     findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
-                    mAuth.createUserWithEmailAndPassword(((EditText) findViewById(R.id.email)).getText().toString().trim(), ((EditText) findViewById(R.id.password)).getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(((EditText) findViewById(R.id.emailText)).getText().toString().trim(), ((EditText) findViewById(R.id.passwordText)).getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                databaseReference.child("users").setValue(new UserModel(((EditText) findViewById(R.id.usernameText)).getText().toString().trim(), ((EditText) findViewById(R.id.phoneNumberText)).getText().toString().trim(), ((EditText) findViewById(R.id.email)).getText().toString().trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                databaseReference.child("users").setValue(new UserModel(((EditText) findViewById(R.id.usernameText)).getText().toString().trim(), ((EditText) findViewById(R.id.phoneNumberText)).getText().toString().trim(), ((EditText) findViewById(R.id.emailText)).getText().toString().trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
