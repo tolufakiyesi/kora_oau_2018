@@ -13,11 +13,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-
 import apps.dabinu.com.piggysmart.R;
 import apps.dabinu.com.piggysmart.adapters.TransactionAdapter;
 import apps.dabinu.com.piggysmart.models.TransactionModel;
@@ -41,10 +41,27 @@ public class AllTransactionsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        getView().findViewById(R.id.addNewTransaction).setOnClickListener(new View.OnClickListener() {
+        getView().findViewById(R.id.addNewTransaction).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 //inflate add new dialog
+
+                final android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(getActivity());
+                alert.setCancelable(false);
+                View view = (getActivity().getLayoutInflater()).inflate(R.layout.model_add_new, null);
+                alert.setView(view);
+
+
+                alert.create();
+                alert.show();
+
+
+
+
+
+
+
+
             }
         });
 
